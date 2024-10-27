@@ -1,0 +1,14 @@
+{
+	"": {
+		"prefix": "jhattu",
+		"body": [
+		  "import java.util.*;",
+		  "public class  {",
+		  "public static void main(String args[]){",
+		  "",
+		  "  }",
+		  "}"
+		],
+		"description": ""
+	  }
+}
