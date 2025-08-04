@@ -45,10 +45,66 @@ public static int binarySearch(int number[], int key ){
   }
   return -1;
 }
+<<<<<<< HEAD
 public static void main(String args[]){
   int number[] = {2,5,8,12,15,20,25,30,35,40,45,50};
   int key = 15;
   System.err.println("Binary Search Index: " + binarySearch(number, key));
+=======
+
+public static void reverse (int number[]){
+  int start = 0;
+  int last = number.length -1;
+  while(start <last){
+    int temp = number[start];
+    number[start] = number[last];
+    number[last] = temp;
+    start++;
+    last--;
+  }
+}
+public static void maxSubArraySum (int number[]){
+  int CurrSum = 0;
+  int prefix[] = new int[number.length];
+  int maxSum = Integer.MIN_VALUE;
+  prefix[0] = number[0];
+  for(int i =1; i<prefix.length; i++){
+    prefix[i] = prefix[i - 1] + number[i];
+  }
+  for(int i = 0; i < number.length; i++){
+    int start = i;
+    for(int j = i; j < number.length; j++){
+      int end = j;
+      CurrSum = start ==0 ? prefix[end] : prefix[end] - prefix[start - 1];
+      System.out.println(CurrSum + " ");
+      if(maxSum < CurrSum){
+        maxSum = CurrSum;
+      }
+
+    }
+
+  }
+  System.out.println("Maximum Subarray Sum: " + maxSum);  
+}
+public static void kadans(){
+}
+
+public static void main(String args[]){
+
+  maxSubArraySum(new int[]{1,2,3,4,5});
+// int number[] = {2,5,8,12,15,20,25,30,35,40,45,50};
+
+// reverse(number);
+// for(int i =0; i<number.length; i++){
+//   System.out.print(number[i]+" ");
+// }
+// System.out.println();
+
+
+  // int number[] = {2,5,8,12,15,20,25,30,35,40,45,50};
+  // int key = 15;
+  // System.err.println("Binary Search Index: " + binarySearch(number, key));
+>>>>>>> ec164ed (Arraybasics)
 
 
 // int largestNumber[] = {50, 40, 90, 20, 10};
