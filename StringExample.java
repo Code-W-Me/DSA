@@ -8,6 +8,36 @@ public static String getString(String str){
     System.out.println();
     return str;
 }
+public static boolean isPalindrome(String str){
+  for(int i =0; i<str.length()/2;i++){
+    if(str.charAt(i) != str.charAt(str.length()-1-i)){
+      return false;
+    }
+  }
+  return true;
+  
+}
+public static float getShortestPath(String str){
+    int x=0;
+    int y=0;
+    for(int i =0;i<str.length();i++){
+      char dir = str.charAt(i);
+      if(dir == 'N'){
+        y++;
+      }
+      else if(dir == 'S'){
+        y--;
+      }
+      else if(dir == 'E'){
+        x++;
+      }
+      else{
+        x--;
+      }
+    }
+    float ans = (float)Math.sqrt(x*x + y*y);
+    return ans;
+  }
 public static void main(String args[]){
     // String str="asdf";
     // String str1= new String("xyz");
@@ -19,10 +49,12 @@ public static void main(String args[]){
     // String fullName = "Yash Veer";
     // System.out.println(fullName.length());
 
-    String firstName = "Yash";
-    String lastName = "Veer";
-    String fullName = firstName + " " + lastName;
-    getString(fullName);
-
+    // String firstName = "Yash";
+    // String lastName = "Veer";
+    // String fullName = firstName + " " + lastName;
+    // getString(fullName);
+    // System.out.println(isPalindrome("madam"));
+    // System.out.println(isPalindrome("hello"));
+    System.out.println(getShortestPath("WNEENESENNN"));
   }
 }
