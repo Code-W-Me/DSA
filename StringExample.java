@@ -17,6 +17,14 @@ public static boolean isPalindrome(String str){
   return true;
   
 }
+public static boolean isPalindrome(String str){
+  for(int i=0;i<str.length()/2;i++){
+    if(str.charAt(i) != str.charAt(str.length()-i-1)){
+      return false;
+    }
+  }
+  return true;
+}
 public static float getShortestPath(String str){
     int x=0;
     int y=0;
@@ -38,6 +46,15 @@ public static float getShortestPath(String str){
     float ans = (float)Math.sqrt(x*x + y*y);
     return ans;
   }
+
+public static String subString(String str , int si, int ei){
+    String substr = "";
+    for(int i = si; i<=ei; i++){
+      substr += str.charAt(i);
+    }
+    return substr;
+  }
+  
 public static void main(String args[]){
     // String str="asdf";
     // String str1= new String("xyz");
@@ -55,6 +72,22 @@ public static void main(String args[]){
     // getString(fullName);
     // System.out.println(isPalindrome("madam"));
     // System.out.println(isPalindrome("hello"));
-    System.out.println(getShortestPath("WNEENESENNN"));
+    // System.out.println(getShortestPath("WNEENESENNN"));
+    String str = "helloworld";
+    // System.out.println(subString(str, 0, 5));
+    // System.out.println(str.substring(0,5));
+    String fruits[] = {"apple", "mango", "banana"};
+    String largest = fruits[0];
+    for(int i = 1; i<fruits.length; i++){
+      if(largest.compareTo(fruits[i]) < 0){
+        largest = fruits[i];
+      }
+    }
+    System.out.println(largest);
   }
 }
+
+
+
+
+
