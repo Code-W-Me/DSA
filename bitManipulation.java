@@ -77,7 +77,17 @@ public static void main(String args[]){
     // System.out.println(clearBitsinRange(10,2,4));
     // System.out.println(isPowerOfTwo(15));
     // System.out.println(countSetBits(2));
-    System.out.println(fastExpo(2,6));
-
+    // System.out.println(fastExpo(2,6));
+    int a = 7;
+    int b = 3;
+    a  = a^b; // a= 7^3 (which is 4 )
+    // now a is 4 and b is 3
+    b = a^b; // b = 4 ^ 3 ( which is 7)
+    // now a is 4 and b is 7 (be is swapped)
+    a = a^b; // a = 4 ^ 7 ( which is 3)
+    // now a is 3 and b is 7 ( a is swapped)
+    System.out.println("a: "+ a);
+    System.out.println("b: "+ b);
+    
   }
 }
