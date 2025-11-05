@@ -31,17 +31,59 @@ public class OOP {
     // Student s3 = new Student(123);
     // System.out.println(s1.naaame);
 
-    Fish shark = new Fish();
-    Dog puppy = new Dog();
-    Bird lilly = new Bird();
-    lilly.eat();
-    lilly.parrots = 1;
-    lilly.dance();
-    System.out.println(lilly.parrots);
+    // Fish shark = new Fish();
+    // Dog puppy = new Dog();
+    // Bird lilly = new Bird();
+    // lilly.eat();
+    // lilly.parrots = 1;
+    // lilly.dance();
+    // System.out.println(lilly.parrots);
+    // Queen q = new Queen();
+    // q.moves();
+    Bear b = new Bear();
+    b.eatsMeat();
+    b.eatsPlant();
 
     }
    
 }
+
+ // homework
+
+    interface herbivore{
+        void eatsPlant();
+    }
+    interface carnivore{
+        void eatsMeat();
+    }
+    class Bear implements herbivore, carnivore{
+        public void eatsPlant(){
+            System.out.println("eats plants");
+        }
+        public void eatsMeat(){
+            System.out.println("eats meat");
+        }
+    }
+ // homework till here 
+
+    interface ChessPlayer{
+        void moves();
+    }
+    class Queen implements ChessPlayer{
+        public void moves(){
+            System.out.println("up, down, left, right, diagonal(In all directions)");
+        }
+    }
+    class Pawn implements ChessPlayer{
+        public void moves(){
+            System.out.println("up");
+        }
+    }
+    class Rook implements ChessPlayer{
+        public void moves(){
+            System.out.println("up, down, left, right");
+        }
+    }
 
  // Inheritance : Inheritence is when propetries and method of base calss are passed on to derived class.
     // base class
@@ -136,6 +178,5 @@ class Student{
 //     }
 
 // }
-
 
 
