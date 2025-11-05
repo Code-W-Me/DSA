@@ -78,6 +78,8 @@ public static void main(String args[]){
     // System.out.println(isPowerOfTwo(15));
     // System.out.println(countSetBits(2));
     // System.out.println(fastExpo(2,6));
+
+    // Question 2: Swap two numbers without using third variable
     int a = 7;
     int b = 3;
     a  = a^b; // a= 7^3 (which is 4 )
@@ -88,6 +90,13 @@ public static void main(String args[]){
     // now a is 3 and b is 7 ( a is swapped)
     System.out.println("a: "+ a);
     System.out.println("b: "+ b);
-    
+    // Question 3: Find the unique number by adding 1 to a number using bit manipulation
+    int x = 5;
+    int bitMask = -(~x);
+    System.out.println("plus 1 of the given Number is : " + bitMask);
+    // Question 4: Convert uppercase to lowercase and vice versa
+    char uppercase = 'D';
+    char lowercase = (char) (uppercase | ' ');
+    System.out.println("Lowercase of the given uppercase is : " + lowercase); 
   }
 }
