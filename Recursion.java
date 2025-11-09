@@ -47,7 +47,64 @@ public class Recursion {
         return fn;
     }
 
+    public static boolean isSorted(int arr[], int i){
+        // base case
+        if(i==arr.length-1){
+            return true;
+        }
+        if(arr[i]>=arr[i+1]){
+            return false;
+        }
+        return isSorted(arr, i+1);
+    }
+    public static int firstOccurence(int arr[],int key, int i){
+        // base case
+        if(i==arr.length){
+            return -1;
+        }
+        if(arr[i]==key){
+            return i;
+        }
+        return firstOccurence(arr, key , i+1);
+    }
 
+    public static int lastOccurence(int arr[], int key , int i){
+        // base case
+        if(i==-1){
+            return -1;
+        }
+        if(arr[i]==key){
+            return i;
+        }
+        else{
+            return lastOccurence(arr, key, i-1);
+        }
+    }
+
+
+    public static int  power(int x, int n){
+        // base case
+        if(n==0){
+            return 1;
+        }
+        int xnm1 = power(x, n-1);
+        int xn = x * xnm1;
+        return xn;
+    }
+
+    public static int optimizedPower(int a , int n){
+        //base case
+        if(n==0){
+            return 1;
+        }
+        int halfPower = optimizedPower(a, n/2);
+        int halfPowerSq = halfPower * halfPower;
+        //for odd n
+        if(n%2 !=0){
+            halfPowerSq = a * halfPowerSq;
+        }
+        return halfPowerSq;
+    }
 
 
 
@@ -55,7 +112,14 @@ public class Recursion {
     int n = 10;
     // System.out.println("factorial would be:" + factorial(5));
     // System.out.println("Sum would be:" + Sum(5));
-    System.out.println("Fibonacci would be:" + fibonacci(5));   
+    // System.out.println("Fibonacci would be:" + fibonacci(5));  
+    int arr[] = {8,3,6,9,5,10,2,5,3};
+    // System.out.println(isSorted(arr, 0));
+    // System.out.println(firstOccurence(arr, 5, 0));
+    // System.out.println(lastOccurence(arr, 5, arr.length-1));
+     System.out.println(power(2, 3));
+    System.out.println(optimizedPower(2, 5));
 }
 }
 
+ 
