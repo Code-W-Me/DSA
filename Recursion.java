@@ -106,8 +106,37 @@ public class Recursion {
         return halfPowerSq;
     }
 
+    public static int tilingProblem(int n){ // 2X n (floor size)
+        // base case
+        if(n==0 || n==1){
+            return 1;
+        }
+        //work
+        //vertical choice
+        int fnm1 = tilingProblem(n-1);
+        //horizontal choice
+        int fnm2 = tilingProblem(n-2);
+        int fn = fnm1 + fnm2;
+        return fn;
+    }
 
+    public static void removeDuplicates(String str, int idx , StringBuilder newStr, boolean map[]){
+        // base case
+        if(idx == str.length()){
+            System.out.println(newStr);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        if(map[currChar -'a'] == true){
+            // duplicate
+            removeDuplicates(str,idx +1, newStr, map);
 
+        }else{
+            // not duplicate
+            map[currChar - 'a' ] = true;
+            removeDuplicates(str, idx +1, newStr.append(currChar), map);
+        }
+    }
     public static void main(String[] args){
     int n = 10;
     // System.out.println("factorial would be:" + factorial(5));
@@ -117,9 +146,14 @@ public class Recursion {
     // System.out.println(isSorted(arr, 0));
     // System.out.println(firstOccurence(arr, 5, 0));
     // System.out.println(lastOccurence(arr, 5, arr.length-1));
-     System.out.println(power(2, 3));
-    System.out.println(optimizedPower(2, 5));
+    //  System.out.println(power(2, 3));
+    // System.out.println(optimizedPower(2, 5));
+    // System.out.println(tilingProblem(4));
+    String str = "appnnacollege";
+    boolean map[] = new boolean[26];
+    removeDuplicates(str, 0, new StringBuilder(""), map);
 }
 }
+
 
  
