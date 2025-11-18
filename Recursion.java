@@ -137,21 +137,95 @@ public class Recursion {
             removeDuplicates(str, idx +1, newStr.append(currChar), map);
         }
     }
+
+    public static int friendsPairing(int n ){
+        // base case
+        if(n==1 || n==2){
+            return n;
+        }
+        // choices
+        //single
+        int fnm1 = friendsPairing(n-1);
+        // pair
+        int fnm2 = friendsPairing(n-2);
+        int pairways = (n-1) * fnm2;
+        int totalways = fnm1 + pairways;
+        return totalways;
+    }
+
+    public static void printBinaryStrings(int n ,  int lastPlace , String str){
+        // base case
+        if(n==0){
+            System.out.println(str);
+            return; 
+        }
+
+        // kaam
+        printBinaryStrings(n-1, 0, str + "0");
+        if(lastPlace  == 0){
+            printBinaryStrings(n-1, 1, str + "1");
+        }
+    }
+    public static void  allOccurence(int arr[], int key, int n){
+        // base case
+        if(n==arr.length){
+            return ;
+        }
+        //kaam
+       if(arr[n]==key){
+        System.out.print(n+ " ");
+       }
+       allOccurence(arr, key, n+1);
+        
+    }
+    static String digits[] = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    public static void numToString(int number){
+        // base case
+        if(number==0){
+            return ;
+        }
+        int lastDigit = number % 10;
+        numToString(number / 10);
+        System.out.print(digits[lastDigit] + " ");
+    }
+    public static int  lengthOfString(String str){
+        //base case
+        if(str.length()==0){
+            return 0;
+        }
+        return lengthOfString(str.substring(1)) + 1;
+    }
+
+
+
+
     public static void main(String[] args){
     int n = 10;
     // System.out.println("factorial would be:" + factorial(5));
     // System.out.println("Sum would be:" + Sum(5));
     // System.out.println("Fibonacci would be:" + fibonacci(5));  
-    int arr[] = {8,3,6,9,5,10,2,5,3};
+    // int arr[] = {8,3,6,9,5,10,2,5,3};
     // System.out.println(isSorted(arr, 0));
     // System.out.println(firstOccurence(arr, 5, 0));
     // System.out.println(lastOccurence(arr, 5, arr.length-1));
     //  System.out.println(power(2, 3));
     // System.out.println(optimizedPower(2, 5));
     // System.out.println(tilingProblem(4));
-    String str = "appnnacollege";
-    boolean map[] = new boolean[26];
-    removeDuplicates(str, 0, new StringBuilder(""), map);
+    // String str = "appnnacollege";
+    // boolean map[] = new boolean[26];
+    // removeDuplicates(str, 0, new StringBuilder(""), map);
+    // System.out.println(friendsPairing(3));
+    // printBinaryStrings(10, 0, "");
+//     int arr[] = {3,2,4,5,6,2,7,2,2};
+//    int  key = 2;
+//     allOccurence(arr, key, 0);
+//     System.out.println();
+    // int number = 1024;
+    // numToString(number);
+    // System.out.println();
+    // lengthOfString("hello world");
+    System.out.println(lengthOfString("Hello World"));
+
 }
 }
 
