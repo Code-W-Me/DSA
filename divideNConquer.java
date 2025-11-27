@@ -150,14 +150,15 @@ public static String[] mergeSort(String[] arr, int lo , int hi){
     }
     return str3;
     }
-    
-
 public static boolean isAlphabeticallySmaller(String str1, String str2){
     if(str1.compareTo(str2)<0){
         return true;
     }
     return false;
 }
+
+// revising the previous question code baesd
+
     
 
 
@@ -183,5 +184,7 @@ public static boolean isAlphabeticallySmaller(String str1, String str2){
 
         }
         System.out.println();
+
+
     } 
 }   
