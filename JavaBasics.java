@@ -5,6 +5,10 @@ public class JavaBasics {
         return product;
          
     }
+    public static int multiply(int a , int b){
+        int product = a *b;
+        return product;
+    }
     public static int Factorial(int n) {
         int f= 1;
         for(int i =1; i<=n;i++){
@@ -15,7 +19,7 @@ public class JavaBasics {
     public static int binCoeff(int n , int r) {
         int fact_n = Factorial(n);
         int fact_r = Factorial(r);
-        int fact_nmr = Factorial(n-r);
+        int fact_nmr  = Factorial(n-r);
         int binCoeff =fact_n / (fact_r * fact_nmr);
         return binCoeff;
     }
@@ -97,7 +101,9 @@ public class JavaBasics {
     //     System.out.println("b="+ b);
     // }
     public static void main(String args[]) {
-        decToBin(11);
+        // multiply(2,3);
+        System.out.println(multiply(2,3));
+        // decToBin(11);
         // binToDec(101);
         // primeInRange(100);
         // System.out.println(isPrime(5));
