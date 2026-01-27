@@ -18,9 +18,31 @@ public static void printArr(int arr[]){
     }
     System.out.println();
 }
+
+// find the subsets of a string
+public static void findSubsets(String str, int i, String ans){
+    // base case
+    if(i==str.length()){
+        if(ans.length()==0){
+            System.out.print("null");
+        }else{
+            System.out.print(ans);
+        }
+        System.out.println();
+        return;
+    }
+    //choices
+    // yes choice
+    findSubsets(str, i+1,ans+str.charAt(i));
+    // no choice
+    findSubsets(str, i+1, ans);
+}
 public static void main(String args[]){
     int arr[] = new int[5];
     changeArr(arr, 0, 1);
     printArr(arr);
+    String str = "abc";
+    findSubsets(str, 0, "");
   }
+
 }
