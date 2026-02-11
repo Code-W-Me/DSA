@@ -10,32 +10,81 @@ public static void swap(ArrayList<Integer> list, int idx1, int idx2){
     list.set(idx1,list.get(idx2));
     list.set(idx2,temp);
 }
+
+//contasiner with most water brute force approach
+public static int containerWithMostWater(ArrayList<Integer> height){
+    int maxWater = 0;
+    for(int i=0;i<height.size();i++){
+        for(int j=i+1;j<height.size();j++){
+            int ht = Math.min(height.get(i),height.get(j));
+            int width = j-i;
+            int currWater = ht * width;
+            maxWater = Math.max(maxWater , currWater);
+        }
+
+    }
+    return maxWater;
+}
+
+// pointer approach - O(n)
+public static int storeWater(ArrayList<Integer> height){
+    int maxWater = 0;
+    int lp = 0;
+    int rp = height.size()-1;
+    while(lp<rp){
+        // calculate water area
+        int ht = Math.min(height.get(lp),height.get(rp));
+        int width = rp-lp;
+        int currWater = ht * width;
+        maxWater = Math.max(maxWater , currWater);
+        //update pointer
+        if(height.get(lp)<height.get(rp)){
+            lp++;
+        }else{
+            rp--;
+        }
+    }
+    return maxWater;
+}
 public static void main(String args[]){
 
-    ArrayList<ArrayList<Integer>> mainList = new ArrayList<>();
 
-    ArrayList<Integer> list1 = new ArrayList<>();
-    ArrayList<Integer> list2 = new ArrayList<>();
-    ArrayList<Integer> list3 = new ArrayList<>();
+    ArrayList<Integer> height = new ArrayList<>();
+    height.add(1);
+    height.add(8);
+    height.add(6);
+    height.add(2);
+    height.add(5);
+    height.add(4);
+    height.add(8);
+    height.add(3);
+    height.add(7);
+    System.out.println(storeWater(height));
 
-    for(int i=1 ;i<=5;i++){
-        list1.add(i*1);
-        list2.add(i*2);
-        list3.add(i*3);
-    }
-    mainList.add(list1);
-    mainList.add(list2);
-    mainList.add(list3);
-    System.out.println(mainList);
+    // ArrayList<ArrayList<Integer>> mainList = new ArrayList<>();
 
-    //nested loop
-    for(int i=0;i<mainList.size();i++){
-        ArrayList<Integer> currList = mainList.get(i);
-        for(int j=0;j<currList.size();j++){
-            System.out.print(currList.get(j)+" ");
-        }
-        System.out.println();
-    }
+    // ArrayList<Integer> list1 = new ArrayList<>();
+    // ArrayList<Integer> list2 = new ArrayList<>();
+    // ArrayList<Integer> list3 = new ArrayList<>();
+
+    // for(int i=1 ;i<=5;i++){
+    //     list1.add(i*1);
+    //     list2.add(i*2);
+    //     list3.add(i*3);
+    // }
+    // mainList.add(list1);
+    // mainList.add(list2);
+    // mainList.add(list3);
+    // System.out.println(mainList);
+
+    // //nested loop
+    // for(int i=0;i<mainList.size();i++){
+    //     ArrayList<Integer> currList = mainList.get(i);
+    //     for(int j=0;j<currList.size();j++){
+    //         System.out.print(currList.get(j)+" ");
+    //     }
+    //     System.out.println();
+    // }
     // ArrayList<Integer> list = new ArrayList<>();
     // list.add(1);
     // list.add(2);
