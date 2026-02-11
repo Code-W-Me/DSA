@@ -46,20 +46,62 @@ public static int storeWater(ArrayList<Integer> height){
     }
     return maxWater;
 }
+
+
+// pairSum-1 brute force approach - O(n^2)
+// public static boolean pairSum1(ArrayList<Integer> list, int target){
+//     for(int i=0;i<list.size();i++){
+//         for(int j=i+1;j<list.size();j++){
+//             if(list.get(i)+list.get(j)==target){
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
+// pairSum1 2 pointer approach-O(n)
+public static boolean pairSum1(ArrayList<Integer> list, int target){
+    int lp = 0;
+    int rp = list.size()-1;
+    while(lp!= rp){
+        //case 1
+        if(list.get(lp)+list.get(rp)==target){
+            return true;
+        }
+        //case 2
+        else if(list.get(lp)+list.get(rp)<target){
+            lp++;   
+        }
+        else{
+        rp--;
+        }   
+    }  
+    return false;
+}
 public static void main(String args[]){
 
 
-    ArrayList<Integer> height = new ArrayList<>();
-    height.add(1);
-    height.add(8);
-    height.add(6);
-    height.add(2);
-    height.add(5);
-    height.add(4);
-    height.add(8);
-    height.add(3);
-    height.add(7);
-    System.out.println(storeWater(height));
+
+     ArrayList<Integer> list = new ArrayList<>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(4);
+    list.add(5);
+    int target = 5;
+    System.out.println(pairSum2(list,target));
+    // System.out.println(pairSum1(list,target));
+    // ArrayList<Integer> height = new ArrayList<>();
+    // height.add(1);
+    // height.add(8);
+    // height.add(6);
+    // height.add(2);
+    // height.add(5);
+    // height.add(4);
+    // height.add(8);
+    // height.add(3);
+    // height.add(7);
+    // System.out.println(storeWater(height));
 
     // ArrayList<ArrayList<Integer>> mainList = new ArrayList<>();
 
