@@ -205,17 +205,67 @@ public  boolean checkPalindrome(){
     }
     return true;
 }
+// cycle finding algorithm
+public static boolean isCycle(){ // floyd CFA
+    Node slow = head;
+    Node fast = head;
+
+    while(fast != null && fast.next != null){
+        slow  = slow.next; // +1
+        fast = fast.next.next; // +2
+        if(slow == fast){
+            return true; // cycle exists
+        }
+    }
+    return false; // cycle does not exist
+}
+
+public static void removeCycle(){
+    // find meeting point
+    Node slow = head;
+    Node fast = head;
+    boolean cycle = false;
+    while(fast != null && fast.next != null){
+        slow  = slow.next; // +1
+        fast = fast.next.next; // +2
+        if(slow == fast){
+            cycle = true; // cycle exists
+            break;
+        }
+    }
+    if(cycle == false){
+        return;
+    }
+    // find start of cycle
+    slow = head;
+    Node prev = null; // last node
+    while(slow != fast){
+        prev = fast;
+        slow = slow.next;
+        fast = fast.next;
+    }
+    // remove cycle -> last node next = null
+    prev.next = null;
+}
 
 
 public static void main(String args[]){
     LinkedList ll = new LinkedList();
 
-    ll.addLast(1);
-    ll.addLast(2);
-    ll.addLast(2);
-    ll.addLast(1);
-    ll.print();
-    System.out.println(ll.checkPalindrome());
+    head = new Node(1);
+    head.next = new Node(2);
+    head.next.next = new Node(3);
+    head.next.next.next = head.next; // cycle
+    System.out.println(isCycle());
+    removeCycle();
+    System.out.println(isCycle());
+
+    // ll.addLast(1);
+    // ll.addLast(2);
+    // ll.addLast(2);
+    // ll.addLast(1);
+    // ll.print();
+    // System.out.println(ll.checkPalindrome());
 
 
     // ll.head = new Node(1);
